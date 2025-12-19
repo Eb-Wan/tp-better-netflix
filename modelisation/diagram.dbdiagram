@@ -1,0 +1,459 @@
+{
+  "version": "1.0.0",
+  "darkMode": true,
+  "gridEnabling": false,
+  "detailLevel": "All",
+  "tablePositions": [
+    {
+      "name": "content",
+      "schemaName": "public",
+      "x": -321.2068920405943,
+      "y": 83.84707965605617
+    },
+    {
+      "name": "film",
+      "schemaName": "public",
+      "x": 29.287769500602735,
+      "y": -142.35520870264202
+    },
+    {
+      "name": "series",
+      "schemaName": "public",
+      "x": 35.84479952956198,
+      "y": 42.96767258548141
+    },
+    {
+      "name": "episode",
+      "schemaName": "public",
+      "x": 29.287769500602735,
+      "y": 184.78485093446096
+    },
+    {
+      "name": "livestream",
+      "schemaName": "public",
+      "x": -596.1416218614495,
+      "y": 618.8690835052217
+    },
+    {
+      "name": "person",
+      "schemaName": "public",
+      "x": 31.503979217061982,
+      "y": 416.80267819019775
+    },
+    {
+      "name": "streamer",
+      "schemaName": "public",
+      "x": -999.3483576846718,
+      "y": 695.404938113224
+    },
+    {
+      "name": "film_actor",
+      "schemaName": "public",
+      "x": 466.18431533706655,
+      "y": -27.131316408991097
+    },
+    {
+      "name": "series_actor",
+      "schemaName": "public",
+      "x": 466.18431533706655,
+      "y": 257.9462068882768
+    },
+    {
+      "name": "episode_actor",
+      "schemaName": "public",
+      "x": 462.25194229019155,
+      "y": 471.07121707037015
+    },
+    {
+      "name": "film_director",
+      "schemaName": "public",
+      "x": 462.25194229019155,
+      "y": -185.06366133370864
+    },
+    {
+      "name": "user",
+      "schemaName": "public",
+      "x": -935.1918637754968,
+      "y": -133.02156789678793
+    },
+    {
+      "name": "plan",
+      "schemaName": "public",
+      "x": -1195.2078849508564,
+      "y": -133.02156789678793
+    },
+    {
+      "name": "tag",
+      "schemaName": "public",
+      "x": -1221.6745295596718,
+      "y": 299.26929463316753
+    },
+    {
+      "name": "content_tag",
+      "schemaName": "public",
+      "x": -943.9093550656733,
+      "y": 268.683998549813
+    },
+    {
+      "name": "view_history",
+      "schemaName": "public",
+      "x": -945.4550093625483,
+      "y": 416.09109897246935
+    },
+    {
+      "name": "recommendation",
+      "schemaName": "public",
+      "x": -606.8078816270745,
+      "y": -50.91192962258455
+    }
+  ],
+  "tableGroupCollapseStates": [],
+  "stickyNoteLayouts": [],
+  "referencePaths": [
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "content",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "content_id"
+      ],
+      "secondTableName": "film",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "content",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "content_id"
+      ],
+      "secondTableName": "series",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "content",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "content_id"
+      ],
+      "secondTableName": "episode",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "content_id"
+      ],
+      "firstTableName": "series",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "series_id"
+      ],
+      "secondTableName": "episode",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "content",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "content_id"
+      ],
+      "secondTableName": "livestream",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "user_id"
+      ],
+      "firstTableName": "streamer",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "streamer_id"
+      ],
+      "secondTableName": "livestream",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "user",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "user_id"
+      ],
+      "secondTableName": "streamer",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "content_id"
+      ],
+      "firstTableName": "film",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "film_id"
+      ],
+      "secondTableName": "film_actor",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "person",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "person_id"
+      ],
+      "secondTableName": "film_actor",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "content_id"
+      ],
+      "firstTableName": "series",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "series_id"
+      ],
+      "secondTableName": "series_actor",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "person",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "person_id"
+      ],
+      "secondTableName": "series_actor",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "content_id"
+      ],
+      "firstTableName": "episode",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "episode_id"
+      ],
+      "secondTableName": "episode_actor",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "person",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "person_id"
+      ],
+      "secondTableName": "episode_actor",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "person",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "person_id"
+      ],
+      "secondTableName": "film_director",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "content_id"
+      ],
+      "firstTableName": "film",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "film_id"
+      ],
+      "secondTableName": "film_director",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "plan_id"
+      ],
+      "firstTableName": "user",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id"
+      ],
+      "secondTableName": "plan",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "parent_id"
+      ],
+      "firstTableName": "tag",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "id"
+      ],
+      "secondTableName": "tag",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "content",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "content_id"
+      ],
+      "secondTableName": "content_tag",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "tag",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "tag_id"
+      ],
+      "secondTableName": "content_tag",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "content",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "content_id"
+      ],
+      "secondTableName": "view_history",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "user",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "user_id"
+      ],
+      "secondTableName": "view_history",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "content",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "content_id"
+      ],
+      "secondTableName": "recommendation",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    },
+    {
+      "firstFieldNames": [
+        "id"
+      ],
+      "firstTableName": "user",
+      "firstSchemaName": "public",
+      "firstRelation": "*",
+      "secondFieldNames": [
+        "user_id"
+      ],
+      "secondTableName": "recommendation",
+      "secondSchemaName": "public",
+      "secondRelation": "1",
+      "checkPoints": []
+    }
+  ]
+}

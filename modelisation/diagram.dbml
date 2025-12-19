@@ -1,0 +1,212 @@
+// J'ai relu tout le readme trois fois pour être sûr
+
+enum type_enum {
+  movie
+  series
+  episode
+  live
+}
+
+Table content {
+  id int [pk]
+  type type_enum
+  title varchar
+  description varchar
+  country_production varchar
+  release_date date
+  meta jsonb
+
+  indexes {
+    (type, title)
+    meta [type: gin]
+  }
+
+  checks {
+    `release_date < now()`
+  }
+}
+
+Table film {
+  content_id int [pk]
+  classification_age varchar [not null]
+  budget int
+}
+
+Ref: content.id > film.content_id
+
+Table series {
+  content_id int [pk]
+  nb_saisons int [not null]
+
+  checks {
+    `nb_saisons > 0`
+  }
+}
+
+Ref: content.id > series.content_id
+
+Table episode {
+  content_id int [pk]
+  series_id int [not null]
+  saison int
+  nb_episode int
+  
+  indexes {
+    (series_id, saison)
+  }
+
+  checks {
+    `nb_episode > 0`
+    `season > 0`
+  }
+}
+
+Ref: content.id > episode.content_id
+Ref: series.content_id > episode.series_id
+
+Table livestream {
+    content_id int [pk]
+    date_live date
+    streamer_id int [not null]
+}
+
+Ref: content.id > livestream.content_id
+Ref: streamer.user_id > livestream.streamer_id
+
+Table person {
+  id int [pk]
+  name varchar
+  birth_date date
+  biography varchar
+  
+  indexes {
+    (name)
+  }
+
+  checks {
+    `birth_date < now()`
+  }
+}
+
+Table streamer {
+  user_id int [pk]
+  name varchar
+  birth_date date
+  biography varchar
+  
+  indexes {
+    (name)
+  }
+
+  checks {
+    `birth_date < now()`
+  }
+}
+
+Ref: user.id > streamer.user_id
+
+Table film_actor {
+  film_id int [not null]
+  person_id int [not null]
+}
+
+Ref: film.content_id > film_actor.film_id
+Ref: person.id > film_actor.person_id
+
+Table series_actor {
+  series_id int [not null]
+  person_id int [not null]
+}
+
+Ref: series.content_id > series_actor.series_id
+Ref: person.id > series_actor.person_id
+
+Table episode_actor {
+  episode_id int [not null]
+  person_id int [not null]
+}
+
+Ref: episode.content_id > episode_actor.episode_id
+Ref: person.id > episode_actor.person_id
+
+Table film_director {
+  film_id int [not null]
+  person_id int [not null]
+}
+
+Ref: person.id > film_director.person_id
+Ref: film.content_id > film_director.film_id
+
+Table user {
+  id int [pk]
+  email varchar [unique]
+  country varchar
+  plan_id int [not null]
+  appliance_date date
+}
+
+Ref: user.plan_id > plan.id
+
+Table plan {
+  id int [pk]
+  name varchar [not null]
+  price int [not null]
+  advantages jsonb
+  
+  indexes {
+    advantages [type: gin]
+  }
+
+  checks {
+    `price > 0`
+  }
+}
+
+Table tag {
+  id int [pk]
+  name varchar [not null]
+  parent_id int [not null]
+  
+  indexes {
+    (name)
+  }
+}
+
+Ref: tag.parent_id > tag.id
+
+Table content_tag {
+  content_id int [not null]
+  tag_id int [not null]
+}
+
+Ref: content.id > content_tag.content_id
+Ref: tag.id > content_tag.tag_id
+
+Table view_history {
+  user_id int [not null]
+  content_id int [not null]
+  view_date date
+  progress int
+  
+  indexes {
+    (user_id)
+  }
+}
+
+Ref: content.id > view_history.content_id
+Ref: user.id > view_history.user_id
+
+Table recommendation {
+  user_id int [not null]
+  content_id int [not null]
+  algorithm_score int
+  reason jsonb
+
+  indexes {
+    (user_id)
+    reason [type: gin]
+  }
+}
+
+Ref: content.id > recommendation.content_id
+Ref: user.id > recommendation.user_id
